@@ -50,7 +50,7 @@ class InventoryTest extends PHPUnit_Framework_TestCase {
         //assert
         $this->assertEquals([$test_item, $test_item2], $result);
     }
-    
+
     function test_deleteAll()
         {
             //Arrange
@@ -69,15 +69,20 @@ class InventoryTest extends PHPUnit_Framework_TestCase {
             $this->assertEquals([], $result);
         }
 
+        function test_find() {
 
+            //arrange
+            $description = "Casper";
+            $test_item = new Inventory($description);
+            $test_item->save();
+
+            //act
+            $result = $test_item->find();
+            $db = Inventory::getAll();
+            var_dump($db);
+
+            //assert
+            $this->assertEquals(true, $result);
+        }
 }
  ?>
-
-
-<!-- if the user saves a pez dispenser, the program will show a stored pez dispenser
-
-if the user wants to display all pez, the program will output all contents of database
-
-if the user wants to find dinosaur pez, the program will output a response
-
-if the user wants to delete the ronald mcdonald pez, the program will delete pez from the database -->

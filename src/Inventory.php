@@ -38,5 +38,16 @@ class Inventory  {
     {
        $GLOBALS['DB']->exec("DELETE FROM items;");
     }
+
+    function find() {
+        $item_found = $GLOBALS['DB']->query("SELECT * FROM items WHERE description LIKE 'Casper';");
+        if ($item_found) {
+            foreach($item_found as $item) {
+                return true;
+            }
+        } else {
+                return false;
+        }
+    }
 }
 ?>
