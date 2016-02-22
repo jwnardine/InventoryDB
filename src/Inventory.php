@@ -38,6 +38,5 @@ class Inventory  {
     {
        $GLOBALS['DB']->exec("DELETE FROM items;");
     }
-
-
-} ?>
+}
+?>
