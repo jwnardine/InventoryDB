@@ -19,13 +19,14 @@
     $app->post("/results", function() use ($app) {
         $my_Inventory = new Inventory($_POST['items']);
         $my_Inventory->save();
-        var_dump($my_Inventory);
         return $app['twig']->render('results.html.twig', array('items' => Inventory::getAll()));
     });
 
 
-
-
+    $app->get('/delete_inventory', function() use ($app){
+        Inventory::deleteAll();
+        return $app['twig']->render('deletedinventory.html.twig');
+    });
 
     return $app;
  ?>

@@ -8,16 +8,32 @@
         <title></title>
     </head>
     <body>
-<h1>Add some pez dispensers, yo!</h1>
+
         <form action="/results" method="post">
                 <div class="container">
-                    <div class="form-group">
-                        <label for="items">Pez! Awesome!!!</label>
-                        <input type="text" id="items" name="items" class='form-control'><br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1>Add some pez dispensers, yo!</h1>
+                        <div class="form-group">
+                            <label for="items">Pez! Awesome!!!</label>
+                            <input type="text" id="items" name="items" class='form-control'><br>
+                        </div>
+                        <button class="btn btn-success" type="submit">Add a Pez Dispenser!</button>
+                        </form>
+              <form action="/delete_inventory" method="get">
+                  <button class="btn btn-success" type="submit">Delete inventory</button>
+                        </form>
                     </div>
-                </div>
-                <button class="btn btn-success" type="submit">Add a Pez Dispenser!</button>
-                </form>
+                    <div class="col-md-6">
+                {% if items is not empty %}
+                <h1>Inventory</h1>
+                    {% for item in items %}
+                    <li>{{ item.getDescription }}</li>
+                    {% endfor %}
+                {% endif %}
+            </div>
+          </div>
+        </div>
 
     </body>
 </html>
