@@ -29,10 +29,9 @@
     });
 
     $app->post('/search', function() use ($app){
-        $my_Inventory = new Inventory($_POST['search_item']);
-        $my_Inventory->find($_POST['search_item']);
-        var_dump($my_Inventory);
-        return $app['twig']->render('search.html.twig', array('founditems' => $my_Inventory));
+        $search_result = Inventory::find($_POST['search_item']);
+        var_dump($search_result);
+        return $app['twig']->render('search.html.twig', array('founditems' => $search_result));
     });
 
     return $app;
