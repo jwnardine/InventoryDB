@@ -39,15 +39,18 @@ class Inventory  {
        $GLOBALS['DB']->exec("DELETE FROM items;");
     }
 
-    function find($description) {
-        $item_found = $GLOBALS['DB']->query("SELECT * FROM items WHERE description LIKE '$description'");
-        if ($item_found) {
+    static function find($search_name) {
+        // $item_found = $GLOBALS['DB']->query("SELECT * FROM items WHERE description LIKE '$search_name'");
+        $item_found = Inventory::getAll();
             foreach($item_found as $item) {
-                return true;
+                $item_name = $item->getDescription();
+                if ($item_name == $search_name) {
+                return $item_name;
+                }
+                else {
+                    return "Item not found";
+                }
             }
-        } else {
-                return false;
-        }
     }
 }
 ?>

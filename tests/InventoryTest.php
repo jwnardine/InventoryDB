@@ -80,21 +80,7 @@ class InventoryTest extends PHPUnit_Framework_TestCase {
             $result = $test_item->find($description);
 
             //assert
-            $this->assertEquals(true, $result);
-        }
-
-        function test_find_fail() {
-
-            //arrange
-            $description = "Garfield";
-            $test_item = new Inventory($description);
-            $test_item->save();
-
-            //act
-            $result = $test_item->find($description);
-
-            //assert
-            $this->assertEquals(true, $result);
+            $this->assertEquals("Casper", $result);
         }
 }
  ?>

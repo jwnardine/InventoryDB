@@ -9,9 +9,23 @@
     </head>
     <body>
 
-        <form action="/results" method="post">
+        <form action="/search" method="post">
                 <div class="container">
                     <div class="row">
+                        <div class="jumbotron">
+                            <form action="/search" method="post">
+                                <div class="row">
+                                <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="items">Pez! Awesome!!!</label>
+                                <input type="text" id="search_item" name="search_item" class='form-control'><br>
+                            </div>
+                            <button class="btn btn-success" type="submit">Search for pez!</button>
+                        </div>
+                    </div>
+                            </form>
+                        <form action="/results" method="post">
+                        </div>
                         <div class="col-md-6">
                             <h1>Add some pez dispensers, yo!</h1>
                         <div class="form-group">

@@ -6,13 +6,10 @@
 </head>
 <body>
     <div class="container">
-        {% if items is not empty %}
-            <h1>Success!</h1>
-            <h1>Here are your pez dispensers!</h1>
-            {% for item in items %}
-            <li>{{ item.getDescription }}</li>
-            {% endfor %}
-        {% endif %}
+        {% for found in founditems %}
+        <li>{{ found.getDescription }}</li>
+        {% endfor %}
+
 
     <a href="/">Go back</a>
     </div>
