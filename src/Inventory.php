@@ -40,17 +40,24 @@ class Inventory  {
     }
 
     static function find($search_name) {
+
         // $item_found = $GLOBALS['DB']->query("SELECT * FROM items WHERE description LIKE '$search_name'");
-        $item_found = Inventory::getAll();
-            foreach($item_found as $item) {
+        $items = Inventory::getAll();
+        // var_dump("ALL ITEMS");
+        // var_dump($item_found);
+            $search_found = null;
+            foreach($items as $item) {
+                // var_dump($item);
                 $item_name = $item->getDescription();
+                // preg_match_all("/blue garfield/", $item_name, $matches);
+                preg_match_all("/^.*?($search_name)?(.*)/i", $item_name, $matches);
+                var_dump("MATCHES:");
+                var_dump($matches);
                 if ($item_name == $search_name) {
-                return $item_name;
-                }
-                else {
-                    return "Item not found";
+                    $search_found = $item_name;
                 }
             }
+            return $search_found;
     }
 }
 ?>
