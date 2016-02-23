@@ -30,7 +30,7 @@
 
     $app->post('/search', function() use ($app){
         $search_result = Inventory::find($_POST['search_item']);
-        var_dump($search_result);
+        // var_dump($search_result);
         return $app['twig']->render('search.html.twig', array('founditems' => $search_result));
     });
 

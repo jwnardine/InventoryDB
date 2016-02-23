@@ -50,9 +50,9 @@ class Inventory  {
                 // var_dump($item);
                 $item_name = $item->getDescription();
                 // preg_match_all("/blue garfield/", $item_name, $matches);
-                preg_match_all("/^.*?($search_name)?(.*)/i", $item_name, $matches);
-                var_dump("MATCHES:");
-                var_dump($matches);
+                // preg_match_all("/^.*?($search_name)?(.*)/i", $item_name, $matches);
+                // // var_dump("MATCHES:");
+                // var_dump($matches);
                 if ($item_name == $search_name) {
                     $search_found = $item_name;
                 }
